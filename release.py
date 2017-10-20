@@ -100,11 +100,11 @@ bash_cmd(['git', 'tag', 'release/v'+ core_vers_string_now ])
 # push tags
 bash_cmd(['git', 'push', '--tags'])
 
-# update master branch from dev branch
-bash_cmd(['git', 'checkout', 'master'])
-bash_cmd(['git', 'pull'])
-bash_cmd(['git', 'rebase', 'release/v' + core_vers_string_now])
-bash_cmd(['git', 'push'])
-
-# clean up source directory
-create_clean_src_dir(source_dir)
+## update master branch from dev branch
+#bash_cmd(['git', 'checkout', 'master'])
+#bash_cmd(['git', 'pull'])
+#bash_cmd(['git', 'rebase', 'release/v' + core_vers_string_now])
+#bash_cmd(['git', 'push'])
+#
+## clean up source directory
+#create_clean_src_dir(source_dir)
