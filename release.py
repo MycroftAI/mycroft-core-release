@@ -4,6 +4,8 @@ import subprocess
 import shutil
 import fileinput
 
+set -eE
+
 def create_clean_src_dir(path):
     if not os.path.exists(path):
         os.makedirs(path)
