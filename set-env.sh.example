@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# export environment vars
+# git user
+export git_user_name=''
+export git_user_email=''
+# project settings
+export project_name=''
+export project_owner=''
+export project_branch=''
+export source_dir=''
+
+python release.py
