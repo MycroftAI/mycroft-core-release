@@ -38,8 +38,6 @@ def find_and_replace_in_file(file_path, replacements):
 # set git user variables
 git_user_name = os.environ["git_user_name"]
 git_user_email = os.environ["git_user_email"]
-# git ssh key
-git_ssh_key = os.environ["git_ssh_key"]
 # set project variables
 project_name = os.environ["project_name"]
 project_owner = os.environ["project_owner"]
@@ -54,7 +52,7 @@ source_dir = os.environ["source_dir"]
 create_clean_src_dir(source_dir)
 os.chdir(source_dir)
 try:
-    bash_cmd(['ssh-agent', 'bash', '-c','\'', 'ssh-add', git_ssh_key,';', 'git', 'clone', project_uri , '\''])
+    bash_cmd(['git', 'clone', project_uri])
 except:
     print "Source exists"
 os.chdir(project_name)
@@ -100,13 +98,13 @@ bash_cmd(['git','push'])
 # create a release tag from the latest version
 bash_cmd(['git', 'tag', 'release/v'+ core_vers_string_now ])
 # push tags
-bash_cmd(['ssh-agent', 'bash', '-c','\'', 'ssh-add', git_ssh_key,';', 'git', 'push', '--tags', '\''])
+bash_cmd(['git', 'push', '--tags'])
 
 ## update master branch from dev branch
-#bash_cmd(['git', 'checkout', 'master'])
-#bash_cmd(['git', 'pull'])
-#bash_cmd(['git', 'rebase', 'release/v' + core_vers_string_now])
-#bash_cmd(['git', 'push'])
-#
-## clean up source directory
-#create_clean_src_dir(source_dir)
+bash_cmd(['git', 'checkout', 'master'])
+bash_cmd(['git', 'pull'])
+bash_cmd(['git', 'rebase', 'release/v' + core_vers_string_now])
+bash_cmd(['git', 'push'])
+
+# clean up source directory
+create_clean_src_dir(source_dir)
