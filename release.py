@@ -12,7 +12,7 @@ def create_clean_src_dir(path):
         os.makedirs(path)
 
 def bash_cmd(cmd):
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     print p.communicate()
 
 def find_in_file(file_path, string):
@@ -101,10 +101,10 @@ bash_cmd(['git', 'tag', 'release/v'+ core_vers_string_now ])
 bash_cmd(['git', 'push', '--tags'])
 
 ## update master branch from dev branch
-#bash_cmd(['git', 'checkout', 'master'])
-#bash_cmd(['git', 'pull'])
-#bash_cmd(['git', 'rebase', 'release/v' + core_vers_string_now])
-#bash_cmd(['git', 'push'])
+bash_cmd(['git', 'checkout', 'master'])
+bash_cmd(['git', 'pull'])
+bash_cmd(['git', 'rebase', 'release/v' + core_vers_string_now])
+bash_cmd(['git', 'push'])
 #bash_cmd(['git', 'merge', 'release/v' + core_vers_string_now])
 #bash_cmd(['git', 'pull'])
 #bash_cmd(['git', 'push'])
