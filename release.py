@@ -109,7 +109,7 @@ bash_cmd(['git', 'rebase', 'release/v' + core_vers_string_now])
 bash_cmd(['git', 'push'])
 bash_cmd(['git', 'merge', 'release/v' + core_vers_string_now])
 bash_cmd(['git', 'pull'])
-#bash_cmd(['git', 'push'])
+bash_cmd(['git', 'push'])
 
 
 # clean up source directory
