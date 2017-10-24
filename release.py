@@ -38,6 +38,8 @@ def find_and_replace_in_file(file_path, replacements):
 # set git user variables
 git_user_name = os.environ["git_user_name"]
 git_user_email = os.environ["git_user_email"]
+#git_ssh_key = os.environ["git_ssh_key"]
+#print git_ssh_key
 # set project variables
 project_name = os.environ["project_name"]
 project_owner = os.environ["project_owner"]
@@ -98,17 +100,17 @@ bash_cmd(['git','push'])
 # create a release tag from the latest version
 bash_cmd(['git', 'tag', 'release/v'+ core_vers_string_now ])
 # push tags
-#bash_cmd(['git', 'push', '--tags'])
+bash_cmd(['git', 'push', '--tags'])
 
 ## update master branch from dev branch
-#bash_cmd(['git', 'checkout', 'master'])
-#bash_cmd(['git', 'pull'])
-#bash_cmd(['git', 'rebase', 'release/v' + core_vers_string_now])
-#bash_cmd(['git', 'push'])
-#bash_cmd(['git', 'merge', 'release/v' + core_vers_string_now])
-#bash_cmd(['git', 'pull'])
+bash_cmd(['git', 'checkout', 'master'])
+bash_cmd(['git', 'pull'])
+bash_cmd(['git', 'rebase', 'release/v' + core_vers_string_now])
+bash_cmd(['git', 'push'])
+bash_cmd(['git', 'merge', 'release/v' + core_vers_string_now])
+bash_cmd(['git', 'pull'])
 #bash_cmd(['git', 'push'])
 
 
 # clean up source directory
-#create_clean_src_dir(source_dir)
+create_clean_src_dir(source_dir)
