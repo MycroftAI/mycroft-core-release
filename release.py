@@ -98,9 +98,9 @@ bash_cmd(['git', 'commit', '-m', commit_message])
 bash_cmd(['git','push'])
 
 # create a release tag from the latest version
-bash_cmd(['git', 'tag', 'release/v'+ core_vers_string_now ])
+bash_cmd(['git', 'tag', '-f', 'release/v'+ core_vers_string_now ])
 # push tags
-bash_cmd(['git', 'push', '--tags'])
+bash_cmd(['git', 'push', '--force', '--tags'])
 
 ## update master branch from dev branch
 bash_cmd(['git', 'checkout', 'master'])
