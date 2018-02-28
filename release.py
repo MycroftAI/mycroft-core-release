@@ -105,10 +105,11 @@ bash_cmd(['git', 'push', '--force', '--tags'])
 ## update master branch from dev branch
 bash_cmd(['git', 'checkout', 'master'])
 bash_cmd(['git', 'pull'])
-bash_cmd(['git', 'rebase', 'release/v' + core_vers_string_now])
-bash_cmd(['git', 'push'])
-bash_cmd(['git', 'merge', 'release/v' + core_vers_string_now])
-bash_cmd(['git', 'pull'])
+bash_cmd([
+    'git', 'merge', '--ff', '-m',
+    'Update to v' + core_vers_string_now,
+    'release/v' + core_vers_string_now
+])
 bash_cmd(['git', 'push'])
 
 
